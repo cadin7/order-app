@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "ace32457-3d13-4cdd-876b-52c424f5fcdf",
+		"name": "Rohlik-CaseStudy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19817379"
+	},
+	"item": [
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"cocumber\",\r\n    \"stockQuantity\": 7,\r\n    \"unitPrice\": 11.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9001/products/063e3863-80e0-4c57-95cb-5d3276d58244",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"products",
+						"063e3863-80e0-4c57-95cb-5d3276d58244"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"op\": \"replace\",\r\n        \"path\": \"/stockQuantity\",\r\n        \"value\": 17\r\n    },\r\n    {\r\n        \"op\": \"replace\",\r\n        \"path\": \"/unitPrice\",\r\n        \"value\": 8.0\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9001/products/7f24c4aa-2b7e-4591-ab7f-2d132d891731",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"products",
+						"7f24c4aa-2b7e-4591-ab7f-2d132d891731"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderedProducts\":\r\n    [\r\n        {\r\n            \"productId\":\"7d090ed9-bd39-48ff-9f54-f81249ce4cd6\",\r\n            \"quantity\":  1\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9002/orders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9002/orders/8be07577-a3cb-402f-bf7d-72389a4d822d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"orders",
+						"8be07577-a3cb-402f-bf7d-72389a4d822d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Payment Update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9002/orders/f84ac463-9b08-47bb-a0a2-bf2f78cf3467?paymentStatus=COMPLETED",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9002",
+					"path": [
+						"orders",
+						"f84ac463-9b08-47bb-a0a2-bf2f78cf3467"
+					],
+					"query": [
+						{
+							"key": "paymentStatus",
+							"value": "COMPLETED"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "orderId",
+			"value": "8be07577-a3cb-402f-bf7d-72389a4d822d"
+		}
+	]
+}
